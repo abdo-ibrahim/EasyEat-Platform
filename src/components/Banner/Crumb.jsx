@@ -8,8 +8,9 @@ const Crumb = () => {
 
   return (
     <div className="crumb relative">
-      <div className="crumb-img h-[483px] w-full relative">
-        <img src="./assets/imgs/crumb.jpg" alt="" className="h-full w-full rounded-[16px]" />
+      <div className="crumb-img h-[400px] w-full relative">
+        <div className="overlay absolute h-full w-full bg-green opacity-50"></div>
+        <img src="./assets/imgs/crumb.jpg" alt="" className="h-full w-full" />
       </div>
       <h4 className="crumb-text text-[20px]">
         Home - <span>{currentPageName}</span>

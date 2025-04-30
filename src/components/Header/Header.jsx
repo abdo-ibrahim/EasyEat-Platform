@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../../styles/components/Header/Header.css";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaUser } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { useMobileContext } from "../../utils/MobileHandler";
 import { useSelector } from "react-redux";
@@ -18,6 +18,9 @@ const Header = () => {
   ]);
   const { isMobile } = useMobileContext();
   const [openMenu, setOpenMenu] = useState(false);
+  
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
   const handleNavClick = () => {
     if (!openMenu) return;
     setOpenMenu(false); // Close menu when clicking outside
@@ -27,7 +30,7 @@ const Header = () => {
     <header>
       <div className="container">
         <div className="logo cursor-pointer" onClick={() => navigate("/")}>
-          <img src="./assets/imgs/logo.png" alt="" srcset="" />
+          <img src="./assets/imgs/logo.png" alt="" />
         </div>
         {isMobile && (
           <div
@@ -58,6 +61,9 @@ const Header = () => {
           <div onClick={() => navigate("/cart")}>
             <span>{carts.length}</span>
             <HiOutlineShoppingCart />
+          </div>
+          <div onClick={() => navigate(isAuthenticated ? "/profile" : "/login")}>
+            <FaUser />
           </div>
         </div>
       </div>

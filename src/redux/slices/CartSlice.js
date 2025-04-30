@@ -8,43 +8,39 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     AddToCart: (state, action) => {
-      const findProduct = state.carts.find(
-        (product) => product.id === action.payload.id
-      );
+      const findProduct = state.carts.find((product) => product.id === action.payload.id);
+      const quantityToAdd = action.payload.quantity || 1;
+
       if (findProduct) {
-        findProduct.quantity += 1;
+        findProduct.quantity += quantityToAdd;
       } else {
-        const cloneProduct = { ...action.payload, quantity: 1 };
+        const cloneProduct = {
+          ...action.payload,
+          quantity: action.payload.quantity || 1,
+        };
         state.carts.push(cloneProduct);
       }
       localStorage.setItem("carts", JSON.stringify(state.carts));
     },
     RemoveFromCart: (state, action) => {
-      state.carts = state.carts.filter(
-        (product) => product.id !== action.payload.id
-      );
+      state.carts = state.carts.filter((product) => product.id !== action.payload.id);
       localStorage.setItem("carts", JSON.stringify(state.carts));
     },
     incrementsQuantity: (state, action) => {
-      const findProduct = state.carts.find(
-        (product) => product.id === action.payload.id
-      );
-      findProduct.quantity += 1;
-      localStorage.setItem("carts", JSON.stringify(state.carts));
+      const findProduct = state.carts.find((product) => product.id === action.payload.id);
+      if (findProduct) {
+        findProduct.quantity += 1;
+        localStorage.setItem("carts", JSON.stringify(state.carts));
+      }
     },
     decrementsQuantity: (state, action) => {
-      const findProduct = state.carts.find(
-        (product) => product.id === action.payload.id
-      );
-      findProduct.quantity -= 1;
-      localStorage.setItem("carts", JSON.stringify(state.carts));
+      const findProduct = state.carts.find((product) => product.id === action.payload.id);
+      if (findProduct && findProduct.quantity > 1) {
+        findProduct.quantity -= 1;
+        localStorage.setItem("carts", JSON.stringify(state.carts));
+      }
     },
   },
 });
-export const {
-  AddToCart,
-  RemoveFromCart,
-  incrementsQuantity,
-  decrementsQuantity,
-} = CartSlice.actions;
+export const { AddToCart, RemoveFromCart, incrementsQuantity, decrementsQuantity } = CartSlice.actions;
 export default CartSlice.reducer;

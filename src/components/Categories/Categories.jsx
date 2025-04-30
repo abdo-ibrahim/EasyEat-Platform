@@ -12,7 +12,7 @@ const Categories = ({ setCurCat }) => {
 
   return (
     <div className="container">
-      <div className="categories mt-20 mb-28 grid gap-24 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center">
+      <div className="categories mt-20 mb-28 grid gap-24 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
         {categories.map((cat) => (
           <Category
             key={cat.id}

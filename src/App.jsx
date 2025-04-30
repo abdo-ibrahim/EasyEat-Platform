@@ -9,6 +9,11 @@ import WishList from "./pages/WishList";
 import Header from "./components/Header/Header";
 import Footer from "./components/Sections/Footer";
 import ProductDetails from "./pages/ProductDetails";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
+import Terms from "./pages/Terms";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -21,6 +26,11 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/wishList" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/shop/:name/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />
