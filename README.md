@@ -56,7 +56,6 @@ npm install
 # 3. Start development server
 npm run dev
 
-```
 
 ## 📁 Project Structure
 
@@ -82,6 +81,7 @@ food-e-commerce/
 │   └── utils/               # Utility functions
 ├── tailwind.config.js       # Tailwind configuration
 └── package.json             # Project metadata & scripts
+```
 
 
 ## 👨‍💻 Developer
