@@ -1,4 +1,4 @@
-# 🍔 Food E-Commerce Platform
+# 🍔 EasyEat-Platform
 
 A modern, responsive food ordering and delivery web application built with **React.js**, **Redux Toolkit**, and **Tailwind CSS**. It delivers a seamless shopping experience with an intuitive UI, dark theme, and comprehensive e-commerce features.
 
